@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GrabThatMesh</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { width: 300px; background: #0d1117; color: #e6edf3; font-family: 'Segoe UI', monospace; padding: 16px; }
+  h1 { color: #58a6ff; font-size: 16px; margin-bottom: 4px; }
+  p  { color: #8b949e; font-size: 12px; margin-bottom: 14px; }
+  .status { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px; margin-bottom: 12px; }
+  .status .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+  .dot-idle    { background: #555; }
+  .dot-waiting { background: #d29922; animation: pulse 1s infinite; }
+  .dot-ready   { background: #3fb950; }
+  .dot-error   { background: #f85149; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .file-row { display: flex; justify-content: space-between; align-items: center;
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px; padding: 8px 10px; margin: 4px 0; font-size: 12px; }
+  .file-name { min-width: 0; overflow-wrap: anywhere; flex: 1; }
+  .file-size, .badge { flex-shrink: 0; }
+  .file-size { color: #8b949e; }
+  .file-row { gap: 8px; }
+  #fileList { max-height: 280px; overflow-y: auto; }
+  .btn:focus-visible { outline: 2px solid #58a6ff; outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) { .dot-waiting { animation: none; } }
+  .badge { font-size: 10px; padding: 2px 6px; border-radius: 8px; }
+  .badge-glb { background: #1a4a1f; color: #3fb950; border: 1px solid #2ea043; }
+  .badge-tex { background: #1a3a5c; color: #58a6ff; border: 1px solid #1f6feb; }
+  .btn { width: 100%; background: #238636; color: #fff; border: none; padding: 10px;
+    border-radius: 6px; cursor: pointer; font-size: 14px; margin-top: 8px; }
+  .btn:hover:not(:disabled) { background: #2ea043; }
+  .btn:disabled { background: #21262d; color: #484f58; cursor: not-allowed; }
+  .hint { color: #6e7681; font-size: 11px; margin-top: 10px; line-height: 1.5; }
+</style>
+</head>
+<body>
+<h1>GrabThatMesh</h1>
+<p>Open a Meshy model page to enable downloads.</p>
+
+<div class="status" role="status" aria-live="polite">
+  <span class="dot dot-idle" id="dot"></span>
+  <span id="statusText">Waiting...</span>
+</div>
+
+<div id="fileList"></div>
+<button class="btn" id="btnDl" disabled>Download all</button>
+
+<p class="hint" id="hint">Open a Meshy model page.<br>Let the 3D viewer load the model.</p>
+
+<script src="popup.js"></script>
+</body>
+</html>

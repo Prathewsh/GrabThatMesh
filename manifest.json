@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "GrabThatMesh",
+  "version": "1.1",
+  "description": "Save GLB models and PNG textures captured while the Meshy 3D viewer loads them.",
+  "permissions": [
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://www.meshy.ai/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.meshy.ai/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "GrabThatMesh"
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
