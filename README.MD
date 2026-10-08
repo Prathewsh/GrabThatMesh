@@ -97,6 +97,7 @@ The project uses plain JavaScript and HTML with no build tooling or runtime depe
 ```text
 .
 ├── content.js                 # Model capture, texture capture, cache, and floating control
+├── LICENSE                    # MIT license
 ├── manifest.json              # Extension configuration and permissions
 ├── popup.html                 # Popup layout and styles
 ├── popup.js                   # Popup state, cache access, and download handling
@@ -132,3 +133,7 @@ Keep changes focused, add regression coverage for behavior changes, and describe
 Use GrabThatMesh only with assets you own or are authorized to download. This project does not grant rights to captured models or textures; follow the terms and licensing that apply to those assets.
 
 GrabThatMesh is an independent project and is not affiliated with or endorsed by Meshy.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
